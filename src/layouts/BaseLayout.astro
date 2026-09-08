@@ -8,6 +8,29 @@ interface Props {
 
 const { title, description } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site);
+const image = new URL('/images/xiangyu-wang.jpg', Astro.site);
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfilePage',
+  url: canonical.href,
+  mainEntity: {
+    '@type': 'Person',
+    name: 'Xiangyu Wang',
+    alternateName: ['Xavier Wang', 'Xiangyu Xavier Wang'],
+    url: canonical.href,
+    image: image.href,
+    email: 'mailto:xy.texwang.cs@gmail.com',
+    jobTitle: 'Undergraduate Researcher',
+    worksFor: { '@type': 'Organization', name: 'Shanghai Qi Zhi Institute' },
+    affiliation: [
+      { '@type': 'Organization', name: 'Shanghai Qi Zhi Institute' },
+      { '@type': 'CollegeOrUniversity', name: 'University of Electronic Science and Technology of China' },
+    ],
+    description,
+    sameAs: ['https://github.com/Ga1axy0051'],
+    knowsAbout: ['Robot learning', 'Embodied intelligence', 'Generative robot policies', 'Action representation', 'Temporal modeling', 'Reinforcement learning', 'Imitation learning', 'Graph machine learning'],
+  },
+};
 ---
 
 <!doctype html>
@@ -20,13 +43,18 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <meta name="theme-color" content="#7e2433" />
     <link rel="canonical" href={canonical} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content="profile" />
     <meta property="og:url" content={canonical} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
+    <meta property="og:image" content={image} />
+    <meta property="og:image:alt" content="Portrait of Xiangyu Wang" />
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={image} />
+    <meta name="twitter:image:alt" content="Portrait of Xiangyu Wang" />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(structuredData)} />
     <title>{title}</title>
   </head>
   <body>

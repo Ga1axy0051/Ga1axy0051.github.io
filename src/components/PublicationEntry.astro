@@ -31,11 +31,6 @@ const { publication, number } = Astro.props;
         ))}
       </div>
     )}
-    <div class="publication-detail">
-      <p>{publication.summary}</p>
-      <ul>
-        {publication.details.map((detail) => <li>{detail}</li>)}
-      </ul>
-    </div>
+    <p class="publication-summary">{publication.summary}</p>
   </div>
 </article>

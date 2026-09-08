@@ -1,9 +1,4 @@
-export interface NewsItem {
-  date: string;
-  text: string;
-}
-
-export const news: NewsItem[] = [
+export const news = [
   {
     date: '2026.07',
     text: 'Joined Shanghai Qi Zhi Institute as a full-time, on-site researcher in robot learning under Prof. Huazhe Xu (Tsinghua University).',

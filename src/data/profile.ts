@@ -2,44 +2,31 @@ export interface LinkItem {
   label: string;
   href: string;
   external?: boolean;
+  identity?: boolean;
 }
 
 export const profile = {
-  name: 'Xiangyu Wang',
-  title: 'Undergraduate Researcher in Robot Learning & Embodied Intelligence',
+  formalName: 'Xiangyu Wang',
+  displayName: 'Xiangyu (Xavier) Wang',
+  title: 'Undergraduate researcher working on robot learning and embodied intelligence.',
   email: 'xy.texwang.cs@gmail.com',
-  introduction:
-    'I am an undergraduate at UESTC currently conducting full-time, on-site research in robot learning at Shanghai Qi Zhi Institute under the guidance of Prof. Huazhe Xu (Tsinghua University). My current interests center on generative robot policies, action representations, temporal modeling, and learning from real-world interaction.',
+  biography: [
+    'I am an undergraduate at the University of Electronic Science and Technology of China (UESTC), currently conducting full-time, on-site research at Shanghai Qi Zhi Institute. Advised by Prof. Huazhe Xu of Tsinghua University, I work on robot learning and embodied intelligence with physical robots and real-world experimentation.',
+    'Previously, I worked with Prof. Zhao Kang at UESTC on graph machine learning, graph prompting, optimal transport, and intrinsic graph geometry. This research led to a TPAMI paper at Major Revision and a NeurIPS 2026 submission currently under review.',
+    'My current interests include generative robot policies, action representation, temporal modeling, reinforcement and imitation learning, and learning through real-world interaction.',
+  ],
   currentPosition: {
     institution: 'Shanghai Qi Zhi Institute',
-    role: 'Full-time Researcher',
+    role: 'Full-time',
     mode: 'On-site',
     advisor: 'Prof. Huazhe Xu',
     advisorInstitution: 'Tsinghua University',
   },
   links: [
     { label: 'Email', href: 'mailto:xy.texwang.cs@gmail.com' },
-    { label: 'GitHub', href: 'https://github.com/Ga1axy0051', external: true },
+    { label: 'GitHub', href: 'https://github.com/Ga1axy0051', external: true, identity: true },
     { label: 'CV', href: '/cv/Xiangyu_Wang_CV.pdf', external: true },
   ] satisfies LinkItem[],
-  interests: [
-    'Robot Learning',
-    'Embodied Intelligence',
-    'Generative Robot Policies',
-    'Reinforcement Learning',
-    'Imitation Learning',
-    'Action Representation',
-    'Temporal Modeling',
-    'Real-World Robot Learning',
-  ],
-  education: {
-    institution: 'University of Electronic Science and Technology of China (UESTC)',
-    degree: 'B.E. in Computer Science and Technology',
-    program: 'National “Everest Plan” Project',
-    dates: 'Sep 2024 – Present',
-    gpa: '3.61 / 4.0',
-    averageScore: '85.46',
-  },
   leadership: {
     role: 'Class President',
     organization: 'National “Everest Plan” Cohort, UESTC',

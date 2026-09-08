@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ga1axy0051.github.io/sitemap-index.xml
