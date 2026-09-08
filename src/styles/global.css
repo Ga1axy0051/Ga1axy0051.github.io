@@ -719,17 +719,27 @@ footer p {
     font-size: 1rem;
   }
 
+  .nav-shell {
+    min-height: auto;
+    padding: 0.7rem 0 0.55rem;
+    flex-wrap: wrap;
+    row-gap: 0.25rem;
+  }
+
   .wordmark {
     font-size: 1rem;
   }
 
   .nav-links {
-    gap: 0.8rem;
-    font-size: 0.82rem;
+    width: 100%;
+    justify-content: space-between;
+    gap: 0.65rem;
+    font-size: 0.79rem;
   }
 
+  .nav-links a:nth-child(2),
   .nav-links a:nth-child(3) {
-    display: none;
+    display: inline;
   }
 
   .hero {
