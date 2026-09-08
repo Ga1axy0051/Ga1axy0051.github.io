@@ -24,8 +24,8 @@ export const profile = {
   },
   links: [
     { label: 'Email', href: 'mailto:xy.texwang.cs@gmail.com' },
-    { label: 'GitHub', href: 'https://github.com/Ga1axy0051', external: true, identity: true },
     { label: 'Google Scholar', href: 'https://scholar.google.com/citations?user=NvIemGoAAAAJ&hl=en', external: true, identity: true },
+    { label: 'GitHub', href: 'https://github.com/Ga1axy0051', external: true, identity: true },
     { label: 'CV', href: '/cv/Xiangyu_Wang_CV.pdf', external: true },
   ] satisfies LinkItem[],
   leadership: {

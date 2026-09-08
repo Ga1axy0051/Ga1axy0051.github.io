@@ -3,5 +3,7 @@ export const selectedProject = {
   institution: 'University of Cambridge',
   role: 'Project Leader',
   supervisor: 'Prof. Jamie Vicary',
-  summary: 'Led a mathematical classification project that derived optimization equations, implemented a linear classifier, and generalized the approach toward nonlinear settings. The work received Best Team and Best Individual recognition, a score of 84/100, and two written recommendation letters from Prof. Vicary recognizing strong performance.',
+  supervisorTitle: 'Professor of Future Computation, University of Cambridge',
+  recognition: 'Best Team · Best Individual · Highest personal score: 84/100',
+  description: 'Derived optimization equations for minimizing classification error, implemented a linear classifier, and generalized the mathematical model toward nonlinear classification.',
 };

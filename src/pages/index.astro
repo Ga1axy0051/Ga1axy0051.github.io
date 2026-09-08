@@ -80,8 +80,10 @@ const pageDescription = 'Xiangyu (Xavier) Wang is an undergraduate researcher at
       <SectionHeading eyebrow="03" title="Selected Project" id="project-heading" />
       <article class="project-entry">
         <h3>{selectedProject.title}</h3>
-        <p class="project-context">{selectedProject.institution} <span aria-hidden="true">·</span> {selectedProject.role} <span aria-hidden="true">·</span> Supervised by {selectedProject.supervisor}</p>
-        <p>{selectedProject.summary}</p>
+        <p class="project-context">{selectedProject.institution} <span aria-hidden="true">·</span> {selectedProject.role}</p>
+        <p class="project-supervision">Supervised by <strong>{selectedProject.supervisor}</strong> <span aria-hidden="true">·</span> {selectedProject.supervisorTitle}</p>
+        <p class="project-recognition">{selectedProject.recognition}</p>
+        <p>{selectedProject.description}</p>
       </article>
     </section>
 

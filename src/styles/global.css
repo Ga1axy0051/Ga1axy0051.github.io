@@ -61,6 +61,9 @@ h1 { margin: .48rem 0 .55rem; font-family: var(--serif); font-size: clamp(2.85re
 .entry-description { max-width: 42rem; margin: 0; color: var(--ink-soft); font-size: .9rem; }
 .project-entry > p { max-width: 44rem; margin-bottom: .5rem; }
 .project-context { color: var(--accent); font-size: .88rem; font-weight: 650; }
+.project-supervision { color: var(--ink-soft); font-size: .9rem; }
+.project-supervision strong { color: var(--ink); }
+.project-recognition { color: var(--ink-soft); font-size: .88rem; }
 .leadership-line p { margin-bottom: .55rem; }
 .leadership-line .small-label { margin-right: .6rem; }
 .news-item { padding: .72rem 0; display: grid; grid-template-columns: 5rem 1fr; gap: 1.1rem; border-top: 1px solid var(--line); }
