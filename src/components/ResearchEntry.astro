@@ -1,0 +1,30 @@
+---
+import type { ResearchExperience } from '../data/research';
+
+interface Props {
+  experience: ResearchExperience;
+}
+
+const { experience } = Astro.props;
+---
+
+<article class:list={['research-entry', { current: experience.current }]}>
+  <div class="entry-heading">
+    <div>
+      <h3>{experience.institution}</h3>
+      <p class="role-line">
+        {experience.role}{experience.mode && <><span aria-hidden="true"> · </span>{experience.mode}</>}
+      </p>
+    </div>
+    <p class="date">{experience.dates}</p>
+  </div>
+  <p class="advisor-line">
+    Advised by <strong>{experience.advisor}</strong>{experience.advisorInstitution && <><span aria-hidden="true"> · </span>{experience.advisorInstitution}</>}
+  </p>
+  <div class="entry-detail">
+    <p>{experience.description}</p>
+    <ul class="theme-list" aria-label="Research themes">
+      {experience.themes.map((theme) => <li>{theme}</li>)}
+    </ul>
+  </div>
+</article>

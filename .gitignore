@@ -1,0 +1,17 @@
+node_modules/
+dist/
+.astro/
+.tools/
+.git.saved/
+.DS_Store
+*.log
+/Xiangyu_Wang_CV.pdf
+/xiangyu.jpg
+/desktop-*.png
+/mobile-*.png
+/.git.saved/
+/Xiangyu_Wang_CV.pdf
+/xiangyu.jpg
+/*-preview.png
+/*-research.png
+/*-publications.png

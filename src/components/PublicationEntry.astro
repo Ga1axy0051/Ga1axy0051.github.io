@@ -1,0 +1,41 @@
+---
+import type { Publication } from '../data/publications';
+
+interface Props {
+  publication: Publication;
+  number: number;
+}
+
+const { publication, number } = Astro.props;
+---
+
+<article class="publication-entry">
+  <div class="publication-number" aria-hidden="true">[{number}]</div>
+  <div class="publication-main">
+    <h3>{publication.title}</h3>
+    <p class="authors">
+      {publication.authors.map((author, index) => (
+        <>
+          {author.startsWith('Xiangyu Wang') ? <strong>{author}</strong> : author}{index < publication.authors.length - 1 ? ', ' : ''}
+        </>
+      ))}
+    </p>
+    <p class="contribution-note">* Equal contribution</p>
+    <p class="venue-line">
+      <strong>{publication.venue}</strong><span aria-hidden="true"> · </span><span class="status">{publication.status}</span>{publication.year && <><span aria-hidden="true"> · </span>{publication.year}</>}{publication.secondaryStatus && <><span aria-hidden="true"> · </span>{publication.secondaryStatus}</>}
+    </p>
+    {publication.links.length > 0 && (
+      <div class="publication-links">
+        {publication.links.map((link) => (
+          <a href={link.href} target="_blank" rel="noreferrer">{link.label}<span aria-hidden="true"> ↗</span></a>
+        ))}
+      </div>
+    )}
+    <div class="publication-detail">
+      <p>{publication.summary}</p>
+      <ul>
+        {publication.details.map((detail) => <li>{detail}</li>)}
+      </ul>
+    </div>
+  </div>
+</article>

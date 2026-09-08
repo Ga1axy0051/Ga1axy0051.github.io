@@ -1,0 +1,172 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PublicationEntry from '../components/PublicationEntry.astro';
+import ResearchEntry from '../components/ResearchEntry.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import { news } from '../data/news';
+import { profile } from '../data/profile';
+import { projects } from '../data/projects';
+import { publications } from '../data/publications';
+import { researchExperiences } from '../data/research';
+
+const pageTitle = 'Xiangyu Wang — Robot Learning & Embodied Intelligence';
+const pageDescription = 'Academic homepage of Xiangyu Wang, an undergraduate researcher working on robot learning, embodied intelligence, and graph learning.';
+const project = projects[0];
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <header class="site-header">
+    <nav class="nav-shell" aria-label="Primary navigation">
+      <a class="wordmark" href="#top">Xiangyu Wang</a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#publications">Publications</a>
+        <a href="/cv/Xiangyu_Wang_CV.pdf" target="_blank" rel="noreferrer">CV <span aria-hidden="true">↗</span></a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="hero-copy" id="about">
+        <p class="kicker">Robot Learning <span aria-hidden="true">/</span> Embodied Intelligence</p>
+        <h1 id="hero-title">{profile.name}</h1>
+        <p class="hero-title">{profile.title}</p>
+        <p class="intro">{profile.introduction}</p>
+        <div class="primary-links" aria-label="Contact and profile links">
+          {profile.links.map((link) => (
+            <a href={link.href} target={link.external ? '_blank' : undefined} rel={link.external ? 'noreferrer' : undefined}>
+              {link.label}{link.external && <span aria-hidden="true"> ↗</span>}
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <aside class="current-note" aria-label="Current position">
+        <p class="note-label"><span class="signal-dot"></span> Current research</p>
+        <h2>{profile.currentPosition.institution}</h2>
+        <p>{profile.currentPosition.role} <span aria-hidden="true">·</span> {profile.currentPosition.mode}</p>
+        <div class="rule"></div>
+        <p class="advisor">Advised by <strong>{profile.currentPosition.advisor}</strong></p>
+        <p>{profile.currentPosition.advisorInstitution}</p>
+        <p class="platform-note">Physical robot platforms<br />Real-world experimentation</p>
+      </aside>
+
+      <div class="interest-summary">
+        <p>Research interests</p>
+        <ul>
+          {profile.interests.map((interest) => <li>{interest}</li>)}
+        </ul>
+      </div>
+    </section>
+
+    <section class="signal-strip" aria-label="Research status highlights">
+      <div>
+        <span class="signal-label">Journal</span>
+        <strong>TPAMI</strong>
+        <span>Major Revision</span>
+      </div>
+      <div>
+        <span class="signal-label">Conference</span>
+        <strong>NeurIPS 2026</strong>
+        <span>Under Review</span>
+      </div>
+      <div>
+        <span class="signal-label">Environment</span>
+        <strong>Full-time · On-site</strong>
+        <span>Real-robot research</span>
+      </div>
+    </section>
+
+    <section class="section-block news-section" aria-labelledby="news-heading">
+      <SectionHeading eyebrow="01" title="News" id="news-heading" />
+      <div class="news-list">
+        {news.map((item) => (
+          <article class="news-item">
+            <time>{item.date}</time>
+            <p>{item.text}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="section-block" id="research" aria-labelledby="research-heading">
+      <SectionHeading eyebrow="02" title="Research Experience" id="research-heading" />
+      <div class="stack-list">
+        {researchExperiences.map((experience) => <ResearchEntry experience={experience} />)}
+      </div>
+    </section>
+
+    <section class="section-block" id="publications" aria-labelledby="publications-heading">
+      <SectionHeading eyebrow="03" title="Publications" id="publications-heading" />
+      <div class="publication-list">
+        {publications.map((publication, index) => (
+          <PublicationEntry publication={publication} number={index + 1} />
+        ))}
+      </div>
+    </section>
+
+    <section class="section-block compact-section" aria-labelledby="education-heading">
+      <SectionHeading eyebrow="04" title="Education" id="education-heading" />
+      <article class="education-entry">
+        <div class="entry-heading">
+          <div>
+            <h3>{profile.education.institution}</h3>
+            <p>{profile.education.degree}</p>
+            <p class="muted">{profile.education.program}</p>
+          </div>
+          <p class="date">{profile.education.dates}</p>
+        </div>
+        <p class="score-line"><span>GPA {profile.education.gpa}</span><span>Average {profile.education.averageScore}</span></p>
+      </article>
+    </section>
+
+    <section class="section-block" aria-labelledby="project-heading">
+      <SectionHeading eyebrow="05" title="Selected Project" id="project-heading" />
+      <article class="project-entry">
+        <h3>{project.title}</h3>
+        <p class="project-context">{project.institution} <span aria-hidden="true">·</span> {project.role}</p>
+        <p class="supervisor">Supervised by <strong>{project.supervisor}</strong></p>
+        <p class="muted">{project.supervisorTitle}</p>
+        <div class="project-columns">
+          <div>
+            <h4>Recognition</h4>
+            <ul>{project.recognition.map((item) => <li>{item}</li>)}</ul>
+          </div>
+          <div>
+            <h4>Technical contribution</h4>
+            <ul>{project.contributions.map((item) => <li>{item}</li>)}</ul>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="section-block closing-grid" aria-labelledby="leadership-heading">
+      <SectionHeading eyebrow="06" title="Leadership & Interests" id="leadership-heading" />
+      <div class="closing-content">
+        <article>
+          <p class="small-label">Leadership</p>
+          <h3>{profile.leadership.role}</h3>
+          <p>{profile.leadership.organization}</p>
+          <p class="muted">Recognition: {profile.leadership.recognition}</p>
+        </article>
+        <article>
+          <p class="small-label">Beyond research</p>
+          <p class="interest-line">{profile.personalInterests.join(' · ')}</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contact">
+    <div>
+      <p class="footer-name">Xiangyu Wang</p>
+      <p>Robot Learning · Embodied Intelligence</p>
+    </div>
+    <div class="footer-links">
+      <a href={`mailto:${profile.email}`}>{profile.email}</a>
+      <a href="https://github.com/Ga1axy0051" target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+    </div>
+  </footer>
+</BaseLayout>
